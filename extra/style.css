@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 3vw;
+    background-color: green;
+    padding: 2% 0;
+    margin-bottom: 2%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    border: solid;
+    width: 20%;
+}
+
+.title {
+    padding-left: 4%;
+    background-color: green;
+}
+
+.employee-name {
+    font-size: 2vw;
+}
+
+.employee-role {
+    font-size: 1.5vw;
+}
+
+.info-list {
+    list-style: none;
+    margin: 2% 0;
+    padding: 1% 5%;
+}
+
+.info-item {
+    font-size: 1.1vw;
+    padding: 1% 0;
+    border:  .2vw solid
+}
