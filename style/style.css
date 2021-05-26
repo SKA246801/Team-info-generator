@@ -18,9 +18,19 @@
     width: 20%;
 }
 
-.title {
+.manager {
     padding-left: 4%;
     background-color: green;
+}
+
+.engineer {
+    padding-left: 4%;
+    background-color: blue;
+}
+
+.intern {
+    padding-left: 4%;
+    background-color: yellow;
 }
 
 .employee-name {
@@ -29,6 +39,10 @@
 
 .employee-role {
     font-size: 1.5vw;
+}
+
+.info {
+    background-color: grey;
 }
 
 .info-list {
@@ -40,5 +54,13 @@
 .info-item {
     font-size: 1.1vw;
     padding: 1% 0;
-    border:  .2vw solid
+    border:  .2vw solid;
+    background-color: white;
 }
+
+.employee-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+

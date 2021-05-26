@@ -23,7 +23,6 @@ const createTeam = () => {
         } else if (teamMember.addTeamMembers === 'Intern'){
             promptIntern()
         } else {
-            console.log(`team is fdasfsdafasfas     ${team}`);
             createHtml()
         }
     })
@@ -35,28 +34,55 @@ const promptManager = () => {
             type: 'text',
             name: 'name',
             message: 'What is your name?',
-            default: 'Manager'
+            validate: name => {
+                if (name) {
+                    return true
+                } else {
+                    console.log('Please enter a name')
+                    return false
+                }
+            } 
         },
         {
             type: 'text',
             name: 'id',
-            message: 'What is your id?',
-            default: 'ManagerId'
+            message: 'What is your ID number?',
+            validate: idNumber => {
+                if (idNumber) {
+                    return true
+                } else {
+                    console.log('Please enter an ID number')
+                    return false
+                }
+            } 
         },
         {
-        type: 'text',
-        name: 'email',
-        message: 'What is your email address?',
-        default: 'ManagerEmail'
+            type: 'text',
+            name: 'email',
+            message: 'What is your email address?',
+            validate: email => {
+                if (email) {
+                    return true
+                } else {
+                    console.log('Please enter an email address')
+                    return false
+                }
+            } 
         },
         {
-        type: 'text',
-        name: 'officeNumber',
-        message: 'What is your officeNumber?',
-        default: 'ManagerOfficeNum'
+            type: 'text',
+            name: 'officeNumber',
+            message: 'What is your office number?',
+            validate: officeNumber => {
+                if (officeNumber) {
+                    return true
+                } else {
+                    console.log('Please enter a office number')
+                    return false
+                }
+            } 
     }]).then(response => {
         const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-        console.log(manager)
         team.push(manager)
         createTeam()
         
@@ -69,33 +95,55 @@ const promptEngineer = () => {
             type: 'text',
             name: 'name',
             message: "What is your Engineer's name?",
-            default: 'Engineer'
+            validate: name => {
+                if (name) {
+                    return true
+                } else {
+                    console.log('Please enter a name')
+                    return false
+                }
+            } 
         },
         {
             type: 'text',
             name: 'id',
-            message: "What is your Engineer's id?",
-            default: 'EngineerId'
+            message: "What is your Engineer's ID?",
+            validate: idNumber => {
+                if (idNumber) {
+                    return true
+                } else {
+                    console.log('Please enter an ID number')
+                    return false
+                }
+            } 
         },
         {
-        type: 'text',
-        name: 'email',
-        message: "What is your Engineer's email address?",
-        default: 'EngineerEmail'
+            type: 'text',
+            name: 'email',
+            message: "What is your Engineer's email address?",
+            validate: email => {
+                if (email) {
+                    return true
+                } else {
+                    console.log('Please enter an email address')
+                    return false
+                }
+            }
         },
         {
-        type: 'text',
-        name: 'github',
-        message: "What is your Engineer's GitHub?",
-        default: 'EngineerGithub'
+            type: 'text',
+            name: 'github',
+            message: "What is your Engineer's GitHub?",
+            validate: github => {
+                if (github) {
+                    return true
+                } else {
+                    console.log('Please enter a GitHub')
+                    return false
+                }
+            }
     }]).then(response => {
-        console.log(`Name: ${response.name}`)
-        console.log(`id: ${response.id}`)
-        console.log(`email: ${response.email}`)
-        console.log(`github: ${response.github}`)
-
         const engineer = new Engineer(response.name, response.id, response.email, response.github)
-        console.log(`engineer      ${engineer}`)
         team.push(engineer)
         createTeam()
     })
@@ -107,44 +155,69 @@ const promptIntern = () => {
             type: 'text',
             name: 'name',
             message: "What is your Intern's name?",
-            default: 'Intern'
+            validate: name => {
+                if (name) {
+                    return true
+                } else {
+                    console.log('Please enter a name')
+                    return false
+                }
+            } 
         },
         {
             type: 'text',
             name: 'id',
-            message: "What is your Intern's id?",
-            default: 'InternId'
+            message: "What is your Intern's ID?",
+            validate: idNumber => {
+                if (idNumber) {
+                    return true
+                } else {
+                    console.log('Please enter an ID number')
+                    return false
+                }
+            } 
         },
         {
-        type: 'text',
-        name: 'email',
-        message: "What is your Intern's email address?",
-        default: 'InternEmail'
+            type: 'text',
+            name: 'email',
+            message: "What is your Intern's email address?",
+            validate: email => {
+                if (email) {
+                    return true
+                } else {
+                    console.log('Please enter an email address')
+                    return false
+                }
+            }
         },
         {
-        type: 'text',
-        name: 'school',
-        message: 'What school did your intern attend?',
-        default: 'InternSchool'
+            type: 'text',
+            name: 'school',
+            message: 'What school did your intern attend?',
+            validate: school => {
+                if (school) {
+                    return true
+                } else {
+                    console.log('Please enter an school')
+                    return false
+                }
+            }
     }]).then(response => {
         const intern = new Intern(response.name, response.id, response.email, response.school)
-        console.log(intern)
         team.push(intern)
         createTeam()
     })
 }
 
 const createHtml = (data) => {
-    console.log(`data     ${data}`);
-    // console.log(generateTeamHtml(data))
-    // return fs.writeFile('./index.html', generateTeamHtml(data), err => {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-    //         console.log('Team Created!');
-    //     }
-    // })
+    data = team
+    return fs.writeFile('./index.html', generateTeamHtml(data), err => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('Team Created!');
+        }
+    })
 }
-
 
 promptManager()

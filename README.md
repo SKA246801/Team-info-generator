@@ -1,1 +1,3 @@
 # Team-info-generator
+
+This is a team generator. It allows a manager to input their own information as well as the information of others in order to build a team of developers. It can be accessed through node.js after cloning this repo onto your computer. Once you run it you will be asked a series of questions. After answering all of the questions an HTML page will be generated using the info you inputed.
